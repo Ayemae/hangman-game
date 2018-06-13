@@ -1,0 +1,34 @@
+1. Choose word.
+
+2. Put down blank lines for every letter in word.
+	a. make spaces for spaces
+
+3.  Player makes a guess
+
+4.  Game checks to see if letter is in the word
+
+
+
+IF letter is in the word:
+
+5. Fill in the valid guess in the word spaces
+
+ELSE letter not in the word:
+
+5. Player loses a life
+
+
+
+6. Game checks if loser still has lives
+
+
+
+Repeat
+
+
+
+IF lives are > 1:
+
+7. Game over
+
+8. Game selects new word.
