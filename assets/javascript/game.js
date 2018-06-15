@@ -22,8 +22,13 @@ function startNewGame() {
     var mysteryWord = placesToHang[Math.floor(Math.random() * placesToHang.length)]
 
     for (var i = 0; i < mysteryWord.length; i++) {
-        letterSlots[i] = "_";
-    }
+        if (Alphabet.indexOf(mysteryWord[i]) > -1) {
+            letterSlots[i] = "_";
+        }
+        else {
+            letterSlots[i] = "&nbsp;";
+        }
+    } 
 
     console.log("Computer's word: " + mysteryWord);
     console.log(letterSlots);
@@ -55,6 +60,7 @@ function startNewGame() {
                     wins++;
                     remainingGuesses = 7;
                     userGuessArray = [];
+                    letterSlots = [];
                     startNewGame();
                 }
 
@@ -62,7 +68,8 @@ function startNewGame() {
                     losses++;
                     remainingGuesses = 7;
                     userGuessArray = [];
-                    //startNewGame();
+                    letterSlots = [];
+                    startNewGame();
                 }
             } else {
                 errorMessage = "<p> ! You already guessed that letter. </p>";
@@ -97,7 +104,7 @@ addEventListener("keydown", function (event) {
 
             var errorhtml = errorMessage;
 
-            var letterSlotshtml = letterSlots.join("");
+            var letterSlotshtml = letterSlots.join(" ");
             document.querySelector("#game-space").innerHTML = letterSlotshtml;
 
             document.querySelector("#guesses").innerHTML = guesseshtml;
