@@ -20,12 +20,10 @@ var errorMessage = " ";
 
 function startNewGame() {
     var mysteryWord = placesToHang[Math.floor(Math.random() * placesToHang.length)]
-    
+
     for (var i = 0; i < mysteryWord.length; i++) {
         letterSlots[i] = "_";
     }
-    var letterSlotshtml = letterSlots.join(".");
-    document.querySelector("#game-space").innerHTML = letterSlotshtml;
 
     console.log("Computer's word: " + mysteryWord);
     console.log(letterSlots);
@@ -39,7 +37,7 @@ function startNewGame() {
             if (userGuessArray.indexOf(userGuess) === -1) {
                 console.log("My letter: " + userGuess);
 
-                if (mysteryWord.indexOf(userGuess) == -1) {
+                if (mysteryWord.indexOf(userGuess) === -1) {
                     remainingGuesses--;
                     userGuessArray.push(userGuess);
                 }
@@ -47,16 +45,17 @@ function startNewGame() {
                 else {
                     for (var j = 0; j < mysteryWord.length; j++) {
                         if (mysteryWord[j] === userGuess) {
+                            console.log("I see you!");
                             letterSlots[j] = userGuess;
                         }
                     }
                 }
 
                 if (letterSlots.indexOf("_") === -1) {
-                    //wins++;
-                    //remainingGuesses = 7;
-                    //userGuessArray = [];
-                    //startNewGame();
+                    wins++;
+                    remainingGuesses = 7;
+                    userGuessArray = [];
+                    startNewGame();
                 }
 
                 if (remainingGuesses === 0) {
@@ -85,8 +84,8 @@ addEventListener("keydown", function (event) {
     if (event.keyCode === 13) {
         addEventListener("keyup", function (event) {
             if (event.keyCode === 13) {
-                    console.log("lol")
-                 startNewGame();
+                console.log("lol")
+                startNewGame();
             }
 
             var guesseshtml = "<p> Your Guesses <br/> <span>" + userGuessArray.join(" ") + "</span> </p>";
@@ -97,6 +96,9 @@ addEventListener("keydown", function (event) {
                 "<p>Remaining Guesses: " + remainingGuesses + "</p>";
 
             var errorhtml = errorMessage;
+
+            var letterSlotshtml = letterSlots.join("");
+            document.querySelector("#game-space").innerHTML = letterSlotshtml;
 
             document.querySelector("#guesses").innerHTML = guesseshtml;
             document.querySelector("#game").innerHTML = statshtml;
