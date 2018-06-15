@@ -63,7 +63,7 @@ function startNewGame() {
                     losses++;
                     remainingGuesses = 7;
                     userGuessArray = [];
-                    startNewGame();
+                    //startNewGame();
                 }
             } else {
                 errorMessage = "<p> ! You already guessed that letter. </p>";
@@ -80,12 +80,13 @@ function startNewGame() {
 
 
 
+
 addEventListener("keydown", function (event) {
     if (event.keyCode === 13) {
-        addEventListener("keyup", function () {
-            {
-
-                startNewGame();
+        addEventListener("keyup", function (event) {
+            if (event.keyCode === 13) {
+                    console.log("lol")
+                 startNewGame();
             }
 
             var guesseshtml = "<p> Your Guesses <br/> <span>" + userGuessArray.join(" ") + "</span> </p>";
