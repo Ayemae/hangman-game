@@ -1,10 +1,10 @@
 var Alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var placesToHang = [
-    "a back alley", "amusement park", "aquarium", "barbeque", "bird watching", "bookstore", "bon fire", "brewery",
-    "camping", "coffee shop", "convention", "cow tipping", "fishing", "ice cream parlor", "hibachi", "hiking", "ikea",
-    "lan party", "museum", "music festival", "my place", "petting zoo", "pinball arcade", "pizza parlor",
-    "ren fair", "restaurant", "tea room", "the beach", "the city", "the local bar", "the mall",
-    "the movies", "the park", "the zoo", "scavenger hunt", "shopping", "staples", "sushi bar", "water park",
+    "a back alley", "amusement park", "aquarium", "arson", "barbeque", "bird watching", "bookstore", "bon fire", "brewery",
+    "camping", "coffee shop", "convention", "cow tipping", "fishing", "ice cream parlor", "haunted house", "hibachi", 
+    "hiking", "ikea", "lan party", "museum", "music festival", "my place", "petting zoo", "pinball arcade", 
+    "pizza parlor", "ren fair", "restaurant", "rock climbing", "tea room", "the beach", "the city", "the local bar", 
+    "the mall", "the movies", "the park", "the zoo", "scavenger hunt", "shopping", "staples", "sushi bar", "water park",
     "whale watching", "your place"
 ];
 var mysteryWord = undefined;
