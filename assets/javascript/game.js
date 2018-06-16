@@ -1,7 +1,7 @@
 var Alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var placesToHang = [
-    "a back alley", "amusement park", "aquarium", "barbeque", "bird watching", "bookstore", "bon fire", "brewery", "camping",
-    "coffee shop", "convention", "cow tipping", "fishing", "ice cream parlor", "hibachi", "hiking", "ikea",
+    "a back alley", "amusement park", "aquarium", "barbeque", "bird watching", "bookstore", "bon fire", "brewery",
+    "camping", "coffee shop", "convention", "cow tipping", "fishing", "ice cream parlor", "hibachi", "hiking", "ikea",
     "lan party", "museum", "music festival", "my place", "petting zoo", "pinball arcade", "pizza parlor",
     "ren fair", "restaurant", "tea room", "the beach", "the city", "the local bar", "the mall",
     "the movies", "the park", "the zoo", "scavenger hunt", "shopping", "staples", "sushi bar", "water park",
@@ -18,14 +18,7 @@ var userGuessArray = [];
 
 var errorMessage = " ";
 var outcomeMessage = " ";
-
-function gameClear() {
-    remainingGuesses = 7;
-    userGuessArray = [];
-    letterSlots = [];
-    startNewGame();
-};
-
+var gameLost = false;
 
 function startNewGame() {
 
@@ -49,8 +42,8 @@ function startNewGame() {
     document.onkeyup = function (event) {
         var userGuess = event.key.toLowerCase();
 
-        if (Alphabet.indexOf(userGuess) != -1) {
-            if (userGuessArray.indexOf(userGuess) === -1) {
+        if ((gameLost === false) && (Alphabet.indexOf(userGuess) != -1)) {
+            if ((userGuessArray.indexOf(userGuess) === -1) && (letterSlots.indexOf(userGuess) === -1)) {
                 console.log("My letter: " + userGuess);
 
                 if (mysteryWord.indexOf(userGuess) === -1) {
@@ -66,19 +59,21 @@ function startNewGame() {
                     }
                 }
 
-                if (letterSlots.indexOf("_") === -1) {
-                    wins++;
-                    outcomeMessage = "Success! <br/> Press ENTER to play again."
-                }
-
                 if (remainingGuesses === 0) {
-                    losses++;
                     for (var k = 0; k < letterSlots.length; k++) {
                         if (letterSlots[k] == "_") {
-                            letterSlots[k] = mysteryWord[k].fontcolor("#aaaaaa");
+                            letterSlots[k] = mysteryWord[k].fontcolor("#bbbbbb");
+                            if (letterSlots.indexOf("_") === -1) {
+                                losses++;
+                                outcomeMessage = "Your social life is dead. :( <br/> Press ENTER to play again."
+                                gameLost = true;
+                            }
                         }
-                        outcomeMessage = "Your social life is dead. :( <br/> Press ENTER to play again."
                     }
+                }
+                if ((letterSlots.indexOf("_") === -1) && (gameLost === false)) {
+                    wins++;
+                    outcomeMessage = "Success! <br/> Press ENTER to play again."
                 }
             } else {
                 errorMessage = "<p> ! You already guessed that letter. </p>";
@@ -104,6 +99,7 @@ addEventListener("keydown", function (event) {
                 userGuessArray = [];
                 letterSlots = [];
                 outcomeMessage = " ";
+                gameLost = false;
                 startNewGame();
             }
 

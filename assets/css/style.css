@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Rock Salt', Arial, Helvetica, sans-serif;
+    text-align: center;
 }
 
 h1 {
@@ -12,4 +13,23 @@ h1 {
 
 #game-space {
     font-family: 'Rock Salt', "Brush Script MT", Arial, Helvetica, sans-serif;
+}
+
+#outcome,
+#error,
+.press-enter {
+    font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+}
+
+.game {
+    font-size: 2em;
+}
+
+.guess-box {
+    height: 80px;
+}
+
+#guesses span {
+    font-size: 1.4em;
 }
