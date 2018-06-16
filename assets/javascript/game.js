@@ -1,28 +1,53 @@
 var Alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-var placesToHang = [
-    "a back alley", "amusement park", "aquarium", "arson", "barbeque", "bird watching", "bookstore", "bon fire", "brewery",
-    "camping", "coffee shop", "convention", "cow tipping", "fishing", "ice cream parlor", "haunted house", "hibachi", 
-    "hiking", "ikea", "lan party", "museum", "music festival", "my place", "petting zoo", "pinball arcade", 
-    "pizza parlor", "ren fair", "restaurant", "rock climbing", "tea room", "the beach", "the city", "the local bar", 
-    "the mall", "the movies", "the park", "the zoo", "scavenger hunt", "shopping", "staples", "sushi bar", "water park",
-    "whale watching", "your place"
+var plansToHang = [
+    "apple picking", "amusement park", "aquarium", "arson", "baking", "barbeque", "bird watching", "board games", "bookstore", 
+    "bon fire", "botanical gardens", "bowling", "brewery", "bungie jumping", "camping", "coffee shop", "cooking",
+    "concert", "convention", "cow tipping", "dancing", "day spa", "dodgeball", "dungeons and dragons", "escape the room", 
+    "fishing", "golfing", "ice cream parlor", "haunted house", "hibachi", "hiking", "ikea", "lan party", "library", "museum", 
+    "music festival", "netflix and chill", "paintball", "petting zoo", "pinball arcade", "pizza parlor", "ren fair", 
+    "restaurant", "rock climbing", "tea room", "the bar", "the beach", "the city", "the mall", "the movies", "the park", 
+    "the zoo", "scavenger hunt", "scuba diving", "shopping", "skiing", "staples", "sushi bar", "swimming", "ultimate frisbee", 
+    "video games", "water park", "whale watching", "wine festival", "yoga class"
 ];
+var previousEngagment = [
+    "avoiding humans", "balance checkbook", "book club", "debugging", "dinner at grandma's", "coding class", "cooking class", 
+    "clean house", "cook for family", "CRY", "doctor's appointment", "overtime", "court date", "extermintor", "finish FaceBook aRgument", 
+    "get car fixed", "get laptop fixed", "give speech", "goldfish funeral", "homework", "hungover", "interview", "jury duty", "knitting", 
+    "laundry", "mental health day", "migraine", "pack", "sick day", "sleep forever", "spanish class", "so many errands!", "taekwondo", 
+    "taxes", "therapy", "vet appointment", "video games all day", "wallow", "wedding", "work out", "yard work"
+];
+
+var busyArrays = [previousEngagment, plansToHang];
+
+function pickPreviousEngagement() {
+    whichBusyArray = busyArrays[Math.floor(Math.random() * busyArrays.length)];
+    pickPlans = whichBusyArray[Math.floor(Math.random() * whichBusyArray.length)];
+    if ((pickPlans != mysteryWord) && (schedule.indexOf(pickPlans) === -1)) {
+        return pickPlans;}
+    else {
+        pickPreviousEngagement();
+    }
+};
+
+
 var mysteryWord = undefined;
 var userGuess = undefined;
 var letterSlots = [];
+var userGuessArray = [];
 
 var wins = 0;
 var losses = 0;
 var remainingGuesses = 7;
-var userGuessArray = [];
+var schedule = [];
+var gameLost = false;
 
 var errorMessage = " ";
 var outcomeMessage = " ";
-var gameLost = false;
+
 
 function startNewGame() {
 
-    var mysteryWord = placesToHang[Math.floor(Math.random() * placesToHang.length)]
+    var mysteryWord = plansToHang[Math.floor(Math.random() * plansToHang.length)]
 
     for (var i = 0; i < mysteryWord.length; i++) {
         if (Alphabet.indexOf(mysteryWord[i]) > -1) {
@@ -41,6 +66,7 @@ function startNewGame() {
 
     document.onkeyup = function (event) {
         var userGuess = event.key.toLowerCase();
+        errorMessage = " ";
 
         if ((gameLost === false) && (Alphabet.indexOf(userGuess) != -1)) {
             if ((userGuessArray.indexOf(userGuess) === -1) && (letterSlots.indexOf(userGuess) === -1)) {
@@ -49,6 +75,8 @@ function startNewGame() {
                 if (mysteryWord.indexOf(userGuess) === -1) {
                     remainingGuesses--;
                     userGuessArray.push(userGuess);
+                    pickPreviousEngagement();
+                    schedule.push(pickPlans);
                 }
 
                 else {
@@ -98,6 +126,7 @@ addEventListener("keydown", function (event) {
                 remainingGuesses = 7;
                 userGuessArray = [];
                 letterSlots = [];
+                schedule = [];
                 outcomeMessage = " ";
                 gameLost = false;
                 startNewGame();
@@ -108,7 +137,9 @@ addEventListener("keydown", function (event) {
             var statshtml =
                 "<p>Wins: " + wins + "</p>" +
                 "<p>Losses: " + losses + "</p>" +
-                "<p>Remaining Guesses: " + remainingGuesses + "</p>";
+                "<p>Schedule: " + schedule.join(", ") + "</p>";
+
+                console.log(schedule);
 
 
             var outcomehtml = outcomeMessage;
