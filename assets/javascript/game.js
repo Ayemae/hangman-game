@@ -1,30 +1,50 @@
 var Alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var plansToHang = [
-    "apple picking", "amusement park", "aquarium", "arson", "baking", "barbeque", "bird watching", "board games", "bookstore",
+    "apple picking", "amusement park", "aquarium", "arson", "baking", "barbeque", "bird watching", "board games", "biking", "bookstore",
     "bon fire", "botanical gardens", "bowling", "brewery", "bungie jumping", "camping", "coffee shop", "cooking",
     "concert", "convention", "cow tipping", "dancing", "day spa", "dodgeball", "dungeons and dragons", "escape the room",
     "fishing", "golfing", "ice cream parlor", "haunted house", "hibachi", "hiking", "ikea", "lan party", "library", "museum",
-    "music festival", "netflix and chill", "paintball", "petting zoo", "pinball arcade", "pizza parlor", "ren fair",
-    "restaurant", "rock climbing", "tea room", "the bar", "the beach", "the city", "the mall", "the movies", "the park",
+    "music festival", "netflix and chill", "paintball", "petting zoo", "pinball arcade", "pizza parlor", "poker", "ren fair",
+    "restaurant", "rock climbing", "roller blading", "tea room", "the bar", "the beach", "the city", "the mall", "the movies", "the park",
     "the zoo", "scavenger hunt", "scuba diving", "shopping", "skiing", "staples", "sushi bar", "swimming", "ultimate frisbee",
     "video games", "water park", "whale watching", "wine festival",
 ];
 var previousEngagment = [
-    "all work and no play makes Jack a very dull boy.", "at home with books", "avoiding humans", "baby shower", "babysitting", "bachelor party", "bachelorette party", "balance checkbook",
-    "bail Armando out", "bingo", "birthday party", "bloodwork", "book club", "bar mitzvah", "buy supplies", "call credit card company", "communion party", "debugging", "drive Armando home (again)",
-    "clean house", "community service", "commission work", "coding class", "cooking class", "clean house", "cook for family", "CRY", "doctor's appointment", "dog-sitting", "overtime", "court date",
-    "existential crsis", "extermintor", "finiSh FaceBook aRguMent", "food poinsoning", "freelance work", "fundraiser", "funeral", "get car fixed", "get laptop fixed", "lost track of time", "give speech",
-    "go over finances", "goldfish funeral", "graduation party", "help Armando get over break-up (again)", "help Armando pack (again)", "help dad", "help mom", "homework", "house-sitting", "hungover", "interview",
-    "jury duty", "knitting", "laundry", "mental health day", "migraine", "on hold with insurance company", "pack", "plan perfect heist", "quinceanera", "research", "resolve identity theft", "sick day",
-    "sleep forever", "spanish class", "so many errands!", "taekwondo", "taxes", "therapy", "vet appointment", "video games all day", "visit grandparents", "volunteer work", "wallow",
-    "wedding",
-    "work", "work", "work", "work", "work", "work", "work", "work", "work",
+    "all work and no play makes Jack a very dull boy.", "at home with books",
+     "avoiding humans", "baby shower", "babysitting",
+     "bachelor party", "bachelorette party", 
+    "balance checkbook",
+    "bail Armand out", "binge watching on Netflix", "bingo", "birthday party", "bloodwork", "book club",
+     "bar mitzvah", "buy supplies", "buy more post-it notes",
+     "call credit card company", 
+    "communion party", "crossword puzzles", "debugging", "DMV", "drive Armand home (again)",
+    "clean house", "community service", "commission work", "coding class",
+     "cooking class", "clean house", "cook for family",
+     "CRY", "doctor's appointment", 
+    "dog-sitting", "overtime", "court date",
+    "existential crsis", "extermintor", "family party", "finiSh FaceBook aRguMent",
+     "food poinsoning", "freelance work",
+     "fundraiser", "funeral", "get car fixed", 
+    "get laptop fixed", "lost track of time", "give speech",
+    "go over finances", "goldfish funeral", "graduation party", "help Armand get over break-up (again)",
+     "help Armand pack (again)",
+     "help dad", "help mom", "homework", 
+    "house-sitting", "hungover", "interview",
+    "jury duty", "knitting", "laundry", "mental health day", "migraine", "on hold with insurance company",
+     "pack", "plan perfect heist", "plumbing disaster", "public speaking class",
+     "quinceanera", "research", 
+    "resolve identity theft", "seminar", "sick day",
+    "sleep forever", "solitaire", "spanish class", "so many errands!", "taxes",
+     "therapy", "vet appointment",
+     "video games all day", "visit grandparents", 
+    "volunteer work", "wallow", "wedding", "what did I even do today???",
+    "work", "work, work", "working forever", "workshop", "buried in work",
     "work out", "work on novel", "yard work", "yoga class"
 ];
 
 function pickPreviousEngagement() {
     pickPlans = previousEngagment[Math.floor(Math.random() * previousEngagment.length)];
-    if ((pickPlans != mysteryWord) && (schedule.indexOf(pickPlans) === -1)) {
+    if (schedule.indexOf(pickPlans) === -1) {
         return pickPlans;
     }
     else {
@@ -42,9 +62,11 @@ var wins = 0;
 var losses = 0;
 var remainingGuesses = 7;
 var schedule = [];
-var gameLost = false;
+var gameOver = false;
 
 var message = " ";
+var daysOfWeek = ["mon", "tues", "wed", "thurs", "fri", "sat", "sun"]
+
 
 
 function startNewGame() {
@@ -68,7 +90,7 @@ function startNewGame() {
 
     document.onkeyup = function (event) {
         var userGuess = event.key.toLowerCase();
-        if (gameLost === false) {
+        if (gameOver === false) {
             message = " ";
 
             if (Alphabet.indexOf(userGuess) != -1) {
@@ -96,27 +118,28 @@ function startNewGame() {
                                 letterSlots[k] = mysteryWord[k].fontcolor("#bbbbbb");
                                 if (letterSlots.indexOf("_") === -1) {
                                     losses++;
-                                    message = "<p>Your social life is dead. :( <br/> Press ENTER to play again.</p>"
-                                    gameLost = true;
+                                    message = "<p>Your social life is dead. :( <br/><br/> Press ENTER to play again.</p>"
+                                    gameOver = true;
                                 }
                             }
                         }
                     }
-                    if ((letterSlots.indexOf("_") === -1) && (gameLost === false)) {
+                    if ((letterSlots.indexOf("_") === -1) && (gameOver === false)) {
                         wins++;
-                        message = "<p>Success! <br/> Press ENTER to play again.</p>"
+                        message = "<p>Success! <br/><br/> Press ENTER to play again.</p>"
+                        gameOver = true;
+                        schedule.push(mysteryWord + "!");
                     }
                 } else {
-                    message = "<p> ! You already guessed that letter. </p>";
+                    message = "<p> ! You already guessed that letter. </p>".fontcolor("#d30000");
                 }
             }
             else {
-                message = "<p> ! Use a letter key. </p>";
+                message = "<p> ! Use a letter key. </p>".fontcolor("#d30000");
             }
         }
     }
 }
-
 
 
 
@@ -132,37 +155,44 @@ addEventListener("keydown", function (event) {
                 letterSlots = [];
                 schedule = [];
                 message = " ";
-                gameLost = false;
+                gameOver = false;
+                clearCal();
                 startNewGame();
             }
 
-            var guesseshtml = "<h2>Your Guesses</h2> <br/> <span>" + userGuessArray.join(" ") + "</span>";
+            var guesseshtml = "<h2>List of No-Gos</h2> <br/> <span>" + userGuessArray.join(" ") + "</span>";
 
-            var statshtml =
-                //"<h2>Schedule:</h2> " + schedule.join(", ") +
-                "<h2>Wins:</h2> " + wins + " " +
-                "<h2>Losses:</h2> " + losses + "</p>";
+            var winshtml = "<h2>Wins:</h2> " + wins;
+            var losseshtml = "<h2>Losses:</h2> " + losses;
 
             console.log(schedule);
 
 
             var messagehtml = message;
 
-
             var letterSlotshtml = letterSlots.join(" ");
             document.querySelector("#game-space").innerHTML = letterSlotshtml;
 
-            document.querySelector("#mon").innerHTML = "<p>" + schedule[0] + "</p>";
-            document.querySelector("#tues").innerHTML = "<p>" + schedule[1] + "</p>";
-            document.querySelector("#wed").innerHTML = "<p>" + schedule[2] + "</p>";
-            document.querySelector("#thurs").innerHTML = "<p>" + schedule[3] + "</p>";
-            document.querySelector("#fri").innerHTML = "<p>" + schedule[4] + "</p>";
-            document.querySelector("#sat").innerHTML = "<p>" + schedule[5] + "</p>";
-            document.querySelector("#sun").innerHTML = "<p>" + schedule[6] + "</p>";
 
             document.querySelector("#message").innerHTML = messagehtml;
             document.querySelector("#guesses").innerHTML = guesseshtml;
-            document.querySelector("#stats").innerHTML = statshtml;
+            document.querySelector("#wins").innerHTML = winshtml;
+            document.querySelector("#losses").innerHTML = losseshtml;
+
+
+            for (var p = 0; p < schedule.length; p++) {
+                var calCell = document.getElementById(daysOfWeek[p]);
+                if (daysOfWeek[p] === daysOfWeek[p]) {
+                    calCell.innerHTML = "<p>" + schedule[p] + "</p>";
+                }
+            }
+
+            function clearCal() {
+                for (var p = 0; p < remainingGuesses; p++) {
+                    var calCell = document.getElementById(daysOfWeek[p]);
+                        calCell.innerHTML = "";
+                }
+            }
 
         });
     }
