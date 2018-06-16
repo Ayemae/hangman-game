@@ -1,17 +1,31 @@
 @import url('https://fonts.googleapis.com/css?family=Permanent+Marker|Rock+Salt');
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Rock Salt', Arial, Helvetica, sans-serif;
     text-align: center;
+    background-color: #fdfef9;
+    background-image: url(../images/notebook.jpg);
+    background-size: cover;
 }
 
 h1 {
     font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
-    padding: 5px 5px 25px;
+    padding: 15px;
     font-size: 3em;
+    letter-spacing: 4px;
 }
 
 h2 {
+    font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
+    font-size: 1.6em;
+    display: inline;
+}
+
+h3 {
     font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
     font-size: 1.4em;
     display: inline;
@@ -28,10 +42,14 @@ p {
     grid-template-rows: 30px 150px;
     grid-column-gap: 14px;
     justify-content: center;
-    width: auto;
-    margin: 25px;
+    width: 80%;
+    margin: 15px auto;
     padding: 10px;
     border: 2px black solid;
+    overflow: hidden;
+    -webkit-box-shadow: 0px 4px 10px 2px rgba(77,93,133,1);
+-moz-box-shadow: 0px 4px 10px 2px rgba(77,93,133,1);
+box-shadow: 0px 4px 10px 2px rgba(77,93,133,1);
 }
 .cal-header {
     font-family: Verdana, Helvetica, Arial, sans-serif;
@@ -41,22 +59,31 @@ p {
     font-size: 20px;
 }
 
-.calendar-cell {
-    color: rgb(159, 0, 0);
+#calendar-cell {
+    color: darkblue;
     background-color: rgb(242, 239, 212);
     position: relative;
 }
-    .calendar-cell p {
+    #calendar-cell p {
         font-size: 1.2rem;
         -ms-transform: rotate(10deg); /* IE 9 */
         -webkit-transform: rotate(10deg); /* Safari 3-8 */
         transform: rotate(10deg);
-        margin-top: 20%;
+        margin-top: 10%;
+        -ms-word-break: break-all;
+        word-break: break-all;
+        word-break: break-word;
+        -webkit-hyphens: auto;
+           -moz-hyphens: auto;
+                hyphens: auto;
     }
 #cal-no {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    font-weight: bold;
     color: black;
-    float: right;
     position: absolute;
+    top: 5px;
+    right: 5px;
 }
 
 .game {
@@ -69,21 +96,29 @@ p {
     font-family: 'Rock Salt', "Brush Script MT", Arial, Helvetica, sans-serif;
 }
 
-#outcome,
-#error {
+#message {
+    width: 300px;
+    position: absolute;
+    right: 10%;
+    bottom: 10%;
+    float: right;
+}
+
+#message p {
     font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
     font-size: 1.5em;
+    background-color: #eee893;
+    padding-top: 18%;
+    height: 250px;
+        -webkit-box-shadow: -2px 5px 5px 0px rgba(93,115,148,1);
+-moz-box-shadow: -2px 5px 5px 0px rgba(93,115,148,1);
+box-shadow: -2px 5px 5px 0px rgba(93,115,148,1);
+-ms-transform: rotate(-2.5deg); /* IE 9 */
+    -webkit-transform: rotate(-2.5deg); /* Safari 3-8 */
+    transform: rotate(-2.5deg);
 }
 .press-enter {
     font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
-}
-
-#error {
-    height: 60px;
-}
-
-#outcome {
-    height: 70px;
 }
 
 #guesses {
