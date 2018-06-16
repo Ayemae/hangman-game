@@ -135,9 +135,9 @@ addEventListener("keydown", function (event) {
             var guesseshtml = "<p> Your Guesses <br/> <span>" + userGuessArray.join(" ") + "</span> </p>";
 
             var statshtml =
-                "<p>Wins: " + wins + "</p>" +
-                "<p>Losses: " + losses + "</p>" +
-                "<p>Schedule: " + schedule.join(", ") + "</p>";
+                //"<h2>Schedule:</h2> " + schedule.join(", ") + "</p>" +
+                "<h2>Wins:</h2> " + wins + "</p>" +
+                "<h2>Losses:</h2> " + losses + "</p>";
 
                 console.log(schedule);
 
@@ -149,9 +149,17 @@ addEventListener("keydown", function (event) {
             var letterSlotshtml = letterSlots.join(" ");
             document.querySelector("#game-space").innerHTML = letterSlotshtml;
 
+            document.querySelector("#mon").innerHTML = "<p>" + schedule[0] + "</p>";
+            document.querySelector("#tues").innerHTML = "<p>" + schedule[1] + "</p>";
+            document.querySelector("#wed").innerHTML = "<p>" + schedule[2] + "</p>";
+            document.querySelector("#thurs").innerHTML = "<p>" + schedule[3] + "</p>";
+            document.querySelector("#fri").innerHTML = "<p>" + schedule[4] + "</p>";
+            document.querySelector("#sat").innerHTML = "<p>" + schedule[5] + "</p>";
+            document.querySelector("#sun").innerHTML = "<p>" + schedule[6] + "</p>";
+
             document.querySelector("#outcome").innerHTML = outcomehtml;
             document.querySelector("#guesses").innerHTML = guesseshtml;
-            document.querySelector("#game").innerHTML = statshtml;
+            document.querySelector("#stats").innerHTML = statshtml;
             document.querySelector("#error").innerHTML = errorhtml;
 
         });

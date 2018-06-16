@@ -7,8 +7,62 @@ body {
 
 h1 {
     font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
-    padding: 5px 5px 20px;
+    padding: 5px 5px 25px;
     font-size: 3em;
+}
+
+h2 {
+    font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
+    font-size: 1.4em;
+    display: inline;
+}
+
+p {
+    padding: 12px;
+}
+
+.calendar-container {
+    background-color: rgb(104, 43, 43);
+    display: grid;
+    grid-template-columns: 13% 13% 13% 13% 13% 13% 13%;
+    grid-template-rows: 30px 150px;
+    grid-column-gap: 14px;
+    justify-content: center;
+    width: auto;
+    margin: 25px;
+    padding: 10px;
+    border: 2px black solid;
+}
+.cal-header {
+    font-family: Verdana, Helvetica, Arial, sans-serif;
+    color: #fff;
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 20px;
+}
+
+.calendar-cell {
+    color: rgb(159, 0, 0);
+    background-color: rgb(242, 239, 212);
+    position: relative;
+}
+    .calendar-cell p {
+        font-size: 1.2rem;
+        -ms-transform: rotate(10deg); /* IE 9 */
+        -webkit-transform: rotate(10deg); /* Safari 3-8 */
+        transform: rotate(10deg);
+        margin-top: 20%;
+    }
+#cal-no {
+    color: black;
+    float: right;
+    position: absolute;
+}
+
+.game {
+    font-size: 2em;
+    height: 80px;
+    padding: 25px 15px 0;
 }
 
 #game-space {
@@ -16,20 +70,31 @@ h1 {
 }
 
 #outcome,
-#error,
-.press-enter {
+#error {
     font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
     font-size: 1.5em;
 }
-
-.game {
-    font-size: 2em;
+.press-enter {
+    font-family: 'Permanent Marker', "Brush Script MT", Arial, Helvetica, sans-serif;
 }
 
-.guess-box {
+#error {
+    height: 60px;
+}
+
+#outcome {
+    height: 70px;
+}
+
+#guesses {
     height: 80px;
+    line-height: 30px;
 }
 
 #guesses span {
     font-size: 1.4em;
+}
+
+#stats {
+    padding: 15px;
 }
