@@ -1,10 +1,10 @@
 var Alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var placesToHang = [
-    "amusement park", "bird watching", "bookstore", "bon fire", "brewery", "camping",
-    "coffee shop", "convention", "fishing", "ice cream parlor", "hiking", "ikea",
-    "lan party", "music festival", "my place", "pinball arcade", "pizza parlor",
-    "ren fair", "restaurant", "the beach", "the city", "the local bar", "the mall",
-    "the movies", "staples", "sushi bar", "your place"
+    "amusement park", "aquarium", "barbeque", "bird watching", "bookstore", "bon fire", "brewery", "camping",
+    "coffee shop", "convention", "cow tipping", "fishing", "ice cream parlor", "hibachi", "hiking", "ikea",
+    "lan party", "museum", "music festival", "my place", "petting zoo", "pinball arcade", "pizza parlor",
+    "ren fair", "restaurant", "tea room", "the beach", "the city", "the local bar", "the mall",
+    "the movies", "the park", "the zoo", "shopping", "staples", "sushi bar", "whale watching", "your place"
 ];
 var mysteryWord = undefined;
 var userGuess = undefined;
