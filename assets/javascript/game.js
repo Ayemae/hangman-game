@@ -1,7 +1,7 @@
 var Alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var plansToHang = [
     "apple picking", "amusement park", "aquarium", "arson", "baking", "barbeque", "bird watching", "board games", "biking", "bookstore",
-    "bon fire", "botanical gardens", "bowling", "brewery", "bungie jumping", "camping", "coffee shop", "cooking",
+    "bon fire", "botanical gardens", "bowling", "brewery", "bungie jumping", "card games", "camping", "coffee shop", "cooking",
     "concert", "convention", "cow tipping", "dancing", "day spa", "dodgeball", "drinking", "dungeons and dragons", "escape the room",
     "fishing", "golfing", "ice cream parlor", "haunted house", "hibachi", "hiking", "ice skating", "ikea", "lan party", "library",
     "mountain climbing", "movies", "museum", "music festival", "netflix and chill", "paintball", "painting", "petting zoo", "pinball arcade",
