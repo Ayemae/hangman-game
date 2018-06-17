@@ -1,14 +1,16 @@
 var Alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var plansToHang = [
-    "apple picking", "amusement park", "aquarium", "arson", "baking", "barbeque", "bird watching", "board games", "biking", "bookstore",
-    "bon fire", "botanical gardens", "bowling", "brewery", "bungie jumping", "card games", "camping", "coffee shop", "cooking",
-    "concert", "convention", "cow tipping", "dancing", "day spa", "dodgeball", "drinking", "dungeons and dragons", "escape the room",
-    "fishing", "golfing", "ice cream parlor", "haunted house", "hibachi", "hiking", "ice skating", "ikea", "lan party", "library",
-    "mountain climbing", "movies", "museum", "music festival", "netflix and chill", "paintball", "painting", "petting zoo", "pinball arcade",
-    "pizza parlor", "poker", "ren fair", "restaurant", "rock climbing", "roller blading", "tea room", "the bar", "the beach", "the city",
-    "the mall", "the park", "the theater", "the zoo", "scavenger hunt", "scuba diving", "shopping", "skiing", "sky diving", "stadium",
+    "apple picking", "amusement park", "aquarium", "arson", "baking", "barbeque", "baseball", "basketball", "bird watching", "board games",
+    "biking", "bookstore", "bon fire", "botanical gardens", "bowling", "brewery", "bungie jumping", "card games", "camping", "coffee shop",
+    "cooking", "concert", "convention", "cow tipping", "dancing", "day spa", "dodgeball", "drinking", "dungeons and dragons", "escape the room",
+    "fishing", "football", "golfing", "ice cream parlor", "haunted house", "hibachi", "hiking", "ice skating", "ikea", "lan party",
+    "library", "mountain climbing", "movies", "museum", "music festival", "netflix and chill", "paintball", "painting", "petting zoo", 
+    "pinball arcade", "pizza parlor", "poker", "ren fair", "restaurant", "rock climbing", "rodeo show", "roller blading", "tea room", "the bar", 
+    "the beach", "the big game", "the city", "the mall", "the park", "the theater", "the zoo", "scavenger hunt", "scuba diving", "shopping", 
+    "skiing", "sky diving", "soccer", "softball", "stadium",
     //"staples", 
-    "stargazing", "sushi bar", "swimming", "ultimate frisbee", "video games", "vineyard", "water park", "whale watching", "wine festival"
+    "stargazing", "sushi bar", "swimming", "ultimate frisbee", "video games", "vineyard", "volleyball", "water park", "whale watching",
+    "wine festival"
 ];
 var previousEngagment = [
     "all work and no play makes Jack a very dull boy.", "at home with books",
@@ -25,21 +27,22 @@ var previousEngagment = [
     "dog-sitting", 
     "existential crsis", "exterminator", "family party", "finiSh FaceBook aRguMent",
     "fasting", "food poisoning", "freelance work",
-    "fundraiser", "funeral", "get car fixed", 
-    "get laptop fixed", "lost track of time", "give speech",
+    "fundraiser", "funeral", "gardening", "get car fixed", 
+    "get laptop fixed", "lost keys", "lost track of time", "give speech",
     "go over finances", "goldfish funeral", "got lost in wikipedia", "graduation party",
     "help Armand get over break-up (again)", "help Armand pack (again)",
     "help dad", "help mom", "holiday", "homework", 
     "house-sitting", "hungover", "interview",
     "jury duty", "knitting", "laundry", "lounging", "mental health day", "migraine",
     "on hold with insurance company",
-    "overtime", "pack", "plan perfect heist", "plumbing disaster", "public speaking class",
-     "quinceanera", "re-paint the house", "research", 
-    "resolve identity theft", "seminar", "sick day",
+    "overtime", "pack", "plan perfect heist", "played hangman all day", "plumbing disaster", 
+    "public speaking class", "quinceanera", "re-paint the house", "reevaluate priorities", 
+    "research", "resolve identity theft", "run marathon", "seminar", "sick day",
     "sleep forever", "solitaire", "solve rubix cube", "spanish class", "so many errands!", "taxes",
      "therapy", "vet appointment",
      "video games all day", "visit grandparents", 
-    "volunteer work", "wallow", "wedding", "what did I even do today???", "where did the time go?",
+    "volunteer work", "wallow", "watch paint dry", "wedding", "what did I even do today???", 
+    "where did the time go?",
     "work", "work, work", "working forever", "workshop", "buried in work",
     "work out", "work on novel", "yard work", "yoga class"
 ];
